@@ -1,4 +1,4 @@
-name: Build artifacts to link to release
+name: Build artifacts nightly
 
 on:
   push:
