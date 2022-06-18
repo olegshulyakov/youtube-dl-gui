@@ -32,7 +32,7 @@
     "jest": "^27.3.0"
   },
   "dependencies": {
-    "@sentry/electron": "^2.5.0",
+    "@sentry/electron": "^3.0.7",
     "@sentry/node": "^5.27.6",
     "@sentry/tracing": "^5.27.6",
     "adm-zip": "^0.5.9",
