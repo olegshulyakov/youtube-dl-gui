@@ -17,9 +17,9 @@ jobs:
       - name: Install npm modules
         run: npm ci
       - name: Make envfile
-        run: echo ${{ secrets.SENTRY_DSN }} | base64 -d > .env
-      - name: Build and publish artifact
-        run: npm_config_yes=true npm run build --linux
+        run: echo "${{ secrets.SENTRY_DSN }}" | base64 -d > .env
+      - name: Build artifact
+        run: npm_config_yes=true npm run build -- --linux
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-windows:
@@ -36,12 +36,12 @@ jobs:
           echo ${{ secrets.SENTRY_DSN }} > env.b64
           certutil -decode env.b64 .env
           del env.b64
-      - name: Build and publish artifact
+      - name: Build artifact
         run: env npm_config_yes=true npm run build --win
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and publish portable artifact
-        run: env npm_config_yes=true npm run build --win portable
+      - name: Build portable artifact
+        run: env npm_config_yes=true npm run build -- --win portable
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-mac:
@@ -55,7 +55,7 @@ jobs:
         run: npm ci
       - name: Make envfile
         run: echo ${{ secrets.SENTRY_DSN }} | base64 -d > .env
-      - name: Build and publish artifact
-        run: npm_config_yes=true npm run build --mac
+      - name: Build artifact
+        run: npm_config_yes=true npm run build -- --mac
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
