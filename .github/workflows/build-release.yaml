@@ -3,16 +3,16 @@ name: Build artifacts to link to release
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '12'
+          node-version: "12"
       - name: Install npm modules
         run: npm ci
       - name: Make envfile
@@ -36,10 +36,10 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '12'
+          node-version: "12"
       - name: Install npm modules
         run: npm ci
       - name: Make envfile
@@ -58,10 +58,10 @@ jobs:
   build-mac:
     runs-on: macos-11
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '12'
+          node-version: "12"
       - name: Install npm modules
         run: npm ci
       - name: Make envfile
